@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Download, Eye } from 'lucide-react';
+import { Menu, X, Moon, Sun, Eye } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import ResumePreviewModal from '../ui/ResumePreviewModal';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { resumeData } from '../../data/resumeData';
 import { ContactFormData } from '../../types';

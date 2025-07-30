@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, Award, MapPin, Eye } from 'lucide-react';
+import { GraduationCap, Calendar, Award, MapPin } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { resumeData } from '../../data/resumeData';
 import UWLogo from '../../assets/logos/uwlogo.png';
