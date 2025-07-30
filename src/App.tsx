@@ -33,13 +33,13 @@ function App() {
           <div className="container-responsive">
             <div className="text-center">
               <p className="text-gray-400">
-                © 2024 Sharan Vaitheeswaran. Built with React, TypeScript, and Tailwind CSS.
+                © 2025 Sharan Vaitheeswaran
               </p>
               <p className="text-gray-500 text-sm mt-2">
                 Crafted with ❤️ and lots of ☕
               </p>
             </div>
-          </div>
+        </div>
         </footer>
       </div>
     </ThemeProvider>

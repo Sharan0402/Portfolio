@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Download } from 'lucide-react';
+import { Menu, X, Moon, Sun, Download, Eye } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
+import ResumePreviewModal from '../ui/ResumePreviewModal';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showResumePreview, setShowResumePreview] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   const navItems = [
@@ -90,15 +92,16 @@ const Navigation: React.FC = () => {
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
 
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              onClick={downloadResume}
-              className="btn-primary flex items-center space-x-2"
-            >
-              <Download size={16} />
-              <span>Resume</span>
-            </motion.button>
+            <div className="relative">
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                onClick={() => setShowResumePreview(true)}
+                className="btn-primary flex items-center space-x-2"
+              >
+                <span>Resume</span>
+              </motion.button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -142,10 +145,10 @@ const Navigation: React.FC = () => {
                     {isDark ? <Sun size={20} /> : <Moon size={20} />}
                   </button>
                   <button
-                    onClick={downloadResume}
+                    onClick={() => setShowResumePreview(true)}
                     className="btn-primary flex items-center space-x-2 flex-1"
                   >
-                    <Download size={16} />
+                    <Eye size={16} />
                     <span>Resume</span>
                   </button>
                 </div>
@@ -154,6 +157,13 @@ const Navigation: React.FC = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Resume Preview Modal */}
+      <ResumePreviewModal
+        isOpen={showResumePreview}
+        onClose={() => setShowResumePreview(false)}
+        onDownload={downloadResume}
+      />
     </motion.nav>
   );
 };

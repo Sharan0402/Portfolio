@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, Award, MapPin } from 'lucide-react';
+import { GraduationCap, Calendar, Award, MapPin, Eye } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { resumeData } from '../../data/resumeData';
 import UWLogo from '../../assets/logos/uwlogo.png';
 import AmritaLogo from '../../assets/logos/amritalogo.png';
+import ResumePreviewModal from '../ui/ResumePreviewModal';
 
 const Education: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const { education } = resumeData;
+  const [showResumePreview, setShowResumePreview] = useState(false);
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/VS_RESUME.pdf';
+    link.download = 'Sharan_Vaitheeswaran_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -226,22 +237,22 @@ const Education: React.FC = () => {
                 Get in Touch
               </button>
               <button
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '/VS_RESUME.pdf';
-                  link.download = 'Sharan_Vaitheeswaran_Resume.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-                className="btn-primary"
+                onClick={() => setShowResumePreview(true)}
+                className="btn-primary flex items-center space-x-2"
               >
-                Download Resume
+                <span>Download Resume</span>
               </button>
             </div>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Resume Preview Modal */}
+      <ResumePreviewModal
+        isOpen={showResumePreview}
+        onClose={() => setShowResumePreview(false)}
+        onDownload={downloadResume}
+      />
     </section>
   );
 };

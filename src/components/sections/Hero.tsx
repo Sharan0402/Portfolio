@@ -73,13 +73,17 @@ const Hero: React.FC = () => {
           animate="visible"
           className="text-center space-y-8"
         >
-          {/* Profile Image Placeholder */}
+          {/* Profile Image */}
           <motion.div
             variants={itemVariants}
             className="mx-auto"
           >
-            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-primary-500 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl">
-              {personalInfo.name.split(' ').map(n => n[0]).join('')}
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-primary-500/20">
+              <img
+                src="/profile.jpg"
+                alt={personalInfo.name}
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 

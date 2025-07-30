@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ChevronRight } from 'lucide-react';
+import { Calendar, ChevronRight, Eye } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { resumeData } from '../../data/resumeData';
+import ResumePreviewModal from '../ui/ResumePreviewModal';
 
 const Experience: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const { experience } = resumeData;
+  const [showResumePreview, setShowResumePreview] = useState(false);
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/VS_RESUME.pdf';
+    link.download = 'Sharan_Vaitheeswaran_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -128,17 +139,11 @@ const Experience: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <button
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '/VS_RESUME.pdf';
-                  link.download = 'Sharan_Vaitheeswaran_Resume.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-                className="btn-primary"
+                onClick={() => setShowResumePreview(true)}
+                className="btn-primary flex items-center space-x-2"
               >
-                Download Full Resume
+                <Eye size={16} />
+                <span>View Full Resume</span>
               </button>
               <button
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
@@ -150,6 +155,13 @@ const Experience: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Resume Preview Modal */}
+      <ResumePreviewModal
+        isOpen={showResumePreview}
+        onClose={() => setShowResumePreview(false)}
+        onDownload={downloadResume}
+      />
     </section>
   );
 };

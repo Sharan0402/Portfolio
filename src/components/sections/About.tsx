@@ -139,7 +139,7 @@ const About: React.FC = () => {
             className="text-center mt-16"
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Interested in working together? Let's talk about your next project.
+              Interested in working together? Let's talk!
             </p>
             <button
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
