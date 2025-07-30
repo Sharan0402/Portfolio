@@ -101,8 +101,8 @@ const About: React.FC = () => {
                   <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">Years Experience</div>
                 </div>
                 <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                  <div className="text-3xl font-bold text-gradient mb-2">10+</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">Technologies</div>
+                  <div className="text-3xl font-bold text-gradient mb-2">15+</div>
+                  <div className="text-gray-600 dark:text-gray-400 text-sm font-medium">Major Features Shipped</div>
                 </div>
               </motion.div>
             </motion.div>

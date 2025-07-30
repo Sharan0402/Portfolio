@@ -159,7 +159,7 @@ const Skills: React.FC = () => {
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary"
             >
-              Let's Collaborate
+              Let's Connect
             </button>
           </motion.div>
         </motion.div>

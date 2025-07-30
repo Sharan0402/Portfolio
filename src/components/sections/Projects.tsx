@@ -183,12 +183,7 @@ const Projects: React.FC = () => {
                 <Github size={16} />
                 <span>View All on GitHub</span>
               </a>
-              <button
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary"
-              >
-                Let's Collaborate
-              </button>
+
             </div>
           </motion.div>
 
@@ -199,9 +194,9 @@ const Projects: React.FC = () => {
           >
             {[
               { label: "Projects Completed", value: "10+", color: "from-blue-500 to-blue-600" },
-              { label: "Technologies Used", value: "25+", color: "from-green-500 to-green-600" },
-              { label: "Code Commits", value: "500+", color: "from-purple-500 to-purple-600" },
-              { label: "Users Impacted", value: "2000+", color: "from-orange-500 to-orange-600" }
+              { label: "Tech Stack", value: "5+", color: "from-green-500 to-green-600" },
+              { label: "PRs Merged", value: "120+", color: "from-purple-500 to-purple-600" },
+              { label: "Users Impacted", value: "9k+", color: "from-orange-500 to-orange-600" }
             ].map((stat, index) => (
               <motion.div
                 key={index}

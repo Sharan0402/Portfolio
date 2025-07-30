@@ -9,7 +9,7 @@ export const resumeData: ResumeData = {
     email: "vsharan0402@gmail.com", 
     linkedin: "https://linkedin.com/in/sharan-vaitheeswaran",
     github: "https://github.com/Sharan0402",
-    short_summary:"I’m a Software Engineer with 2+ years of experience building scalable web apps and backend systems. I’ve worked across the stack using tools like React, Angular, and Python, with a strong focus on designing APIs, optimizing databases, and deploying services on AWS with Kubernetes. I care deeply about writing clean, maintainable code and solving complex problems through collaboration.",
+    short_summary:"I’m a Software Engineer building scalable web apps and backend systems. I’ve worked across the stack using tools like React, Angular, and Python, with a strong focus on designing APIs, optimizing databases, and deploying services on AWS with Kubernetes. I care deeply about writing clean, maintainable code and solving complex problems through collaboration.",
     summary: "Software Engineer with over 2 years of full-stack experience building scalable web applications and backend systems. Comfortable working across the stack with tools like React, Angular, and Python, and experienced in designing APIs, optimizing database queries, and deploying services on AWS with Kubernetes. Focused on performance, maintainability, and clean code, with a collaborative approach to solving real-world engineering problems."
   },
   

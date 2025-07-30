@@ -49,13 +49,7 @@ const Contact: React.FC = () => {
       href: `mailto:${personalInfo.email}`,
       color: 'from-blue-500 to-blue-600'
     },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      label: 'Phone',
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone}`,
-      color: 'from-green-500 to-green-600'
-    },
+
     {
       icon: <MapPin className="w-6 h-6" />,
       label: 'Location',
@@ -184,23 +178,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Availability Status */}
-              <motion.div
-                variants={itemVariants}
-                className="p-6 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <div>
-                    <div className="text-green-800 dark:text-green-300 font-semibold">
-                      Available for New Opportunities
-                    </div>
-                    <div className="text-green-600 dark:text-green-400 text-sm">
-                      Open to full-time positions and freelance projects
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Contact Form */}

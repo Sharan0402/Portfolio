@@ -107,7 +107,15 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-
+          {/* Availability Status */}
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center space-x-3 px-6 py-3 bg-green-50 dark:bg-green-900/20 rounded-full border border-green-200 dark:border-green-800 mb-8">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="text-green-800 dark:text-green-300 font-semibold">
+                #OpenToWork
+              </div>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
