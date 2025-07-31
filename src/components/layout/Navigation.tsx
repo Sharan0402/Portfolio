@@ -94,7 +94,7 @@ const Navigation: React.FC = () => {
               <motion.div
                 className="absolute top-0.5 left-0.5 w-6 h-6 bg-white dark:bg-gray-800 rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
                 animate={{ x: isDark ? 28 : 0 }}
-                transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                transition={{ type: "spring", stiffness: 2000, damping: 100 }}
               >
                 {isDark ? (
                   <Moon size={14} className="text-blue-400" />
@@ -160,7 +160,7 @@ const Navigation: React.FC = () => {
                     <motion.div
                       className="absolute top-0.5 left-0.5 w-6 h-6 bg-white dark:bg-gray-800 rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
                       animate={{ x: isDark ? 28 : 0 }}
-                      transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                      transition={{ type: "spring", stiffness: 2000, damping: 100 }}
                     >
                       {isDark ? (
                         <Moon size={14} className="text-blue-400" />

@@ -49,11 +49,11 @@ const Contact: React.FC = () => {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_name: 'Portfolio Owner', // Add recipient name
+        to_name: 'Sharan', // Add recipient name
         reply_to: formData.email,
       };
 
-      console.log('Sending email with params:', templateParams);
+
 
       // Send email using EmailJS
       const response = await emailjs.send(
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
         templateParams
       );
 
-      console.log('Email sent successfully:', response);
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {

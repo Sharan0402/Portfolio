@@ -44,7 +44,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     // Save to localStorage
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
     
-    console.log('Theme toggled:', newTheme ? 'dark' : 'light');
+
   };
 
   return (
