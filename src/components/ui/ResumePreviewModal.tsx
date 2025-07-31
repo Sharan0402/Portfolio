@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; // Import ReactDOM
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download, ExternalLink, Moon, Sun } from 'lucide-react';
-import { useTheme } from '../../contexts/ThemeContext';
+import { X, Download, ExternalLink } from 'lucide-react';
 
 interface ResumePreviewModalProps {
     isOpen: boolean;
@@ -15,7 +14,6 @@ const ResumePreviewModal: React.FC<ResumePreviewModalProps> = ({
                                                                    onClose,
                                                                    onDownload
                                                                }) => {
-    const { isDark, toggleTheme } = useTheme();
     
     const handleDownload = () => {
         onDownload();
