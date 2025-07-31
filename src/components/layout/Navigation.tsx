@@ -83,25 +83,25 @@ const Navigation: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            {/* Prominent Theme Toggle */}
+            {/* Theme Toggle Switch */}
             <motion.button
                 onClick={toggleTheme}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-300 dark:border-gray-600"
+                className="relative w-14 h-7 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none"
                 title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
             >
-              {isDark ? (
-                  <>
-                    <Sun size={18} className="text-yellow-500" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Light</span>
-                  </>
-              ) : (
-                  <>
-                    <Moon size={18} className="text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Dark</span>
-                  </>
-              )}
+              <motion.div
+                className="absolute top-0.5 left-0.5 w-6 h-6 bg-white dark:bg-gray-800 rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
+                animate={{ x: isDark ? 28 : 0 }}
+                transition={{ type: "spring", stiffness: 500, damping: 25 }}
+              >
+                {isDark ? (
+                  <Moon size={14} className="text-blue-400" />
+                ) : (
+                  <Sun size={14} className="text-yellow-500" />
+                )}
+              </motion.div>
             </motion.button>
 
             <div className="relative">
@@ -150,12 +150,25 @@ const Navigation: React.FC = () => {
                   </motion.button>
                 ))}
                 <div className="px-4 py-2 flex items-center space-x-4">
-                  <button
+                  <motion.button
                     onClick={toggleTheme}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative w-14 h-7 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none"
+                    title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
                   >
-                    {isDark ? <Sun size={20} /> : <Moon size={20} />}
-                  </button>
+                    <motion.div
+                      className="absolute top-0.5 left-0.5 w-6 h-6 bg-white dark:bg-gray-800 rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
+                      animate={{ x: isDark ? 28 : 0 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                    >
+                      {isDark ? (
+                        <Moon size={14} className="text-blue-400" />
+                      ) : (
+                        <Sun size={14} className="text-yellow-500" />
+                      )}
+                    </motion.div>
+                  </motion.button>
                   <button
                     onClick={() => setShowResumePreview(true)}
                     className="btn-primary flex items-center space-x-2 flex-1"
