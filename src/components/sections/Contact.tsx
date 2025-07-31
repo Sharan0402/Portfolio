@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { resumeData } from '../../data/resumeData';
 import { ContactFormData } from '../../types';
@@ -28,12 +29,44 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission (replace with actual implementation)
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // EmailJS configuration
+      const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      // Validate environment variables
+      if (!serviceID || !templateID || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your .env file.');
+      }
+
+      // Initialize EmailJS with public key
+      emailjs.init(publicKey);
+
+      // Template parameters that match EmailJS template variables
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Portfolio Owner', // Add recipient name
+        reply_to: formData.email,
+      };
+
+      console.log('Sending email with params:', templateParams);
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
