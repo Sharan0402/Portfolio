@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+# Configure secrets scanning to ignore EmailJS variables
+# EmailJS public keys and service IDs are designed to be exposed in frontend builds
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "REACT_APP_EMAILJS_SERVICE_ID,REACT_APP_EMAILJS_TEMPLATE_ID,REACT_APP_EMAILJS_PUBLIC_KEY"
