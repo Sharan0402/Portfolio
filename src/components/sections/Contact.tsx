@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
 
 
       // Send email using EmailJS
-      const response = await emailjs.send(
+      await emailjs.send(
         serviceID,
         templateID,
         templateParams
