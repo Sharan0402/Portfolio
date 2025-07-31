@@ -46,7 +46,7 @@ const Education: React.FC = () => {
   const getInstitutionInfo = (institution: string) => {
     if (institution.includes('University of Washington')) {
       return {
-        location: 'Seattle, WA',
+        location: 'Bothell, WA',
         color: 'from-purple-500 to-purple-600',
         bgColor: 'from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20',
         logo: UWLogo
